@@ -86,9 +86,13 @@
 - 优化updatePositions函数，避免循环中强制布局问题
 
 ## 优化测试结果
-![](e2master.github.io/result/pageSpeedMobile.png)
-![](e2master.github.io/result/pageSpeedPC.png)
-![](e2master.github.io/result/lightHouse.png)
+
+
+![移动设备pageSpeed](https://github.com/e2master/e2master.github.io/blob/master/result/pageSpeedMobile.png)
+
+![桌面设备pageSpeed](https://github.com/e2master/e2master.github.io/blob/master/result/pageSpeedPC.png)
+
+![lightHouse测试结果](https://github.com/e2master/e2master.github.io/blob/master/result/lightHouse.png)
 
 
 
