@@ -6,7 +6,7 @@
 
 ### 指南
 
-####Part 1: 优化 index.html 的 PageSpeed Insights 得分
+#### Part 1: 优化 index.html 的 PageSpeed Insights 得分
 
 以下是几个帮助你顺利开始本项目的提示：
 
@@ -32,7 +32,7 @@
 
 ----
 
-####Part 2: 优化 pizza.html 的 FPS（每秒帧数）
+#### Part 2: 优化 pizza.html 的 FPS（每秒帧数）
 
 你需要编辑 views/js/main.js 来优化 views/pizza.html，直到这个网页的 FPS 达到或超过 60fps。你会在 main.js 中找到一些对此有帮助的注释。
 
@@ -59,16 +59,14 @@
 
 ## 优化内容
 
-###减少传输量
+### 减少传输量
  - 部分图片进行了裁剪，并对图片进行了有效的压缩，从而减少了文件的大小
 
-###优化关键渲染路径
+### 优化关键渲染路径
 - 删除网络字体
 - 不影响首页的js异步加载
 	```
     <script async src="https://www.google-analytics.com/analytics.js"></script>
-	```
-	```
     <script async src="js/perfmatters.js"></script>
 	```
 
@@ -82,7 +80,7 @@
     <link href="css/print.css" rel="stylesheet" media="print">
 	```
 
-###优化 main.js
+### 优化 main.js
 - 优化changePizzaSizes函数，解决强制布局问题
 - 调整determineDx函数接口，将函数用到的数据直接传入
 - 优化updatePositions函数，避免循环中强制布局问题
