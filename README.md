@@ -55,3 +55,40 @@
 
 * <a href="http://getbootstrap.com/css/">Bootstrap CSS</a>
 * <a href="http://getbootstrap.com/components/">Bootstrap组件</a>
+
+
+## 优化内容
+
+###减少传输量
+ - 部分图片进行了裁剪，并对图片进行了有效的压缩，从而减少了文件的大小
+
+###优化关键渲染路径
+- 删除网络字体
+- 不影响首页的js异步加载
+	```
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+	```
+	```
+    <script async src="js/perfmatters.js"></script>
+	```
+
+- 将style.css调整为内联样式。
+
+- 将js脚本移到html底部
+
+- 增加媒体查询
+
+	```
+    <link href="css/print.css" rel="stylesheet" media="print">
+	```
+
+###优化 main.js
+- 优化changePizzaSizes函数，解决强制布局问题
+- 调整determineDx函数接口，将函数用到的数据直接传入
+- 优化updatePositions函数，避免循环中强制布局问题
+
+
+
+
+
+
