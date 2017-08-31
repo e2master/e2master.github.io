@@ -85,8 +85,10 @@
 - 调整determineDx函数接口，将函数用到的数据直接传入
 - 优化updatePositions函数，避免循环中强制布局问题
 
-
-
+## 优化测试结果
+![](e2master.github.io/result/pageSpeedMobile.png)
+![](e2master.github.io/result/pageSpeedPC.png)
+![](e2master.github.io/result/lightHouse.png)
 
 
 
