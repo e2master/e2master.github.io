@@ -446,10 +446,9 @@ var resizePizzas = function(size) {
 
   // 遍历披萨的元素并改变它们的宽度
   function changePizzaSizes(size) {
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+  	var pizzas = document.querySelectorAll(".randomPizzaContainer");
+    for (var i = 0, len = pizzas.length; i < len; i++) {
+      pizzas[i].style.width = (pizzas[i].offsetWidth + determineDx(pizzas[i], size)) + 'px';
     }
   }
 
@@ -465,8 +464,8 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // 收集timing数据
 
 // 这个for循环在页面加载时创建并插入了所有的披萨
+var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -499,10 +498,10 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
   //循环外保存当前滚动位置
   
+  var items = document.querySelectorAll('.mover');
   var st = document.body.scrollTop / 1250;
   var phase = 0;
   
-  var items = document.querySelectorAll('.mover');
   for (var i = 0, len = items.length; i < len; i++) {
     phase = Math.sin(st + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
