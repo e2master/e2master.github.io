@@ -497,10 +497,12 @@ function logAverageFrame(times) {   // times参数是updatePositions()由User Ti
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
+  //循环外保存当前滚动位置
+  var st = document.body.scrollTop / 1250;
 
   var items = document.querySelectorAll('.mover');
-  for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+  for (var i = 0, len = items.length; i < len; i++) {
+    var phase = Math.sin(st + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
