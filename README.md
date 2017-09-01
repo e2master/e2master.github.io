@@ -83,8 +83,10 @@
 ### 优化 main.js
 - 优化changePizzaSizes函数，解决强制布局问题
 - 调整determineDx函数接口，将函数用到的数据直接传入
+- 将固定披萨数量调整为根据当前视窗高度绘制披萨数量
 - 优化updatePositions函数，避免循环中强制布局问题
-
+- querySelectorAll调整为getElementsByClassName
+- querySelector 修改为getElementById(); 
 ## 优化测试结果
 
 

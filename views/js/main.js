@@ -403,13 +403,13 @@ var resizePizzas = function(size) {
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
-        document.querySelector("#pizzaSize").innerHTML = "Small";
+        document.getElementById("pizzaSize").innerHTML = "Small";
         return;
       case "2":
-        document.querySelector("#pizzaSize").innerHTML = "Medium";
+        document.getElementById("pizzaSize").innerHTML = "Medium";
         return;
       case "3":
-        document.querySelector("#pizzaSize").innerHTML = "Large";
+        document.getElementById("pizzaSize").innerHTML = "Large";
         return;
       default:
         console.log("bug in changeSliderLabel");
@@ -444,8 +444,8 @@ var resizePizzas = function(size) {
 
   // 遍历披萨的元素并改变它们的宽度
   function changePizzaSizes(size) {
-    var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
-  	var pizzas = document.querySelectorAll(".randomPizzaContainer");
+    var windowWidth = document.getElementById('randomPizzas').offsetWidth;
+  	var pizzas = document.getElementsByClassName('randomPizzaContainer');
   	var pizzasWidth = [];
   	for (var i = 0, len = pizzas.length; i < len; i++) {
   		pizzasWidth[i] = pizzas[i].offsetWidth;
@@ -501,9 +501,8 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
   //循环外保存当前滚动位置
   
-  var items = document.querySelectorAll('.mover');
+  var items = document.getElementsByClassName('mover');
   var st = document.body.scrollTop / 1250;
-  
   for (var i = 0, len = items.length; i < len; i++) {
     items[i].style.left = items[i].basicLeft + 100 * Math.sin(st + (i % 5)) + 'px';
   }
@@ -525,7 +524,10 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  
+  //将固定披萨数量调整为根据当前视窗高度绘制披萨数量
+  var pNum = Math.ceil((window.innerHeight+100) / s * cols);
+  for (var i = 0; i < pNum; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
@@ -533,7 +535,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    document.getElementById("movingPizzas1").appendChild(elem);
   }
   updatePositions();
 });
